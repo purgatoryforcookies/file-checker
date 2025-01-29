@@ -1,0 +1,11 @@
+[package]
+name = "file-checker"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+ferris-says = "0.3.1"
+hex-literal = "0.4.1"
+md5 = "0.7.0"
+sha2 = "0.10.8"
+walkdir = "2.5.0"
