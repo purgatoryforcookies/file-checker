@@ -5,7 +5,4 @@ edition = "2021"
 
 [dependencies]
 blake3 = "1.5.5"
-jwalk = "0.8.1"
-md5 = "0.7.0"
-sha2 = "0.10.8"
 walkdir = "2.5.0"

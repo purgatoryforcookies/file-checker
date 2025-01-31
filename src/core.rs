@@ -96,7 +96,11 @@ impl ComparatorOp {
                         .expect("write failed");
                 }
             }
-            None => (),
+            None => {
+                data_file
+                    .write_all("No errors found".as_bytes())
+                    .expect("write failed");
+            }
         }
     }
 
