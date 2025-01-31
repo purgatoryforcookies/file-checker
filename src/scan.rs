@@ -1,7 +1,8 @@
-use super::FileOp;
 use walkdir::WalkDir;
 
-pub(crate) fn scan_files(path: String) -> Vec<FileOp> {
+use crate::file::FileOp;
+
+pub fn scan_files(path: String) -> Vec<FileOp> {
     println!("Scanning: {}", path);
 
     let mut files = Vec::new();
