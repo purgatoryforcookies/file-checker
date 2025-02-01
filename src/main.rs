@@ -1,14 +1,22 @@
 mod core;
 mod file;
 mod scan;
-use std::env;
+
+use clap::Parser;
+
+#[derive(Parser, Debug)]
+struct Args {
+    #[clap(short, long)]
+    source: String,
+    #[clap(short, long)]
+    destination: String,
+}
 
 fn main() {
-    let args: Vec<String> = env::args().collect();
+    let cli = Args::parse();
 
-    let dir1 = &args[1];
-    let dir2 = &args[2];
+    println!("{:?}", cli);
 
-    let mut operation = core::ComparatorOp::new(&dir1, &dir2);
+    let mut operation = core::ComparatorOp::new(&cli.source, &cli.destination);
     operation.check();
 }

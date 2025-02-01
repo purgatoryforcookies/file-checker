@@ -17,3 +17,11 @@ After the operation completes, a `result.txt` is written into the current workin
 
 ## How to run 
 
+### win
+
+
+
+### linux
+
+
+### mac
