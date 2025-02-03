@@ -18,3 +18,14 @@ pub fn scan_files(path: String) -> Vec<FileOp> {
     }
     return files;
 }
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_finds_all_files() {
+        let files = scan_files("src/__fixtures__".to_string());
+        assert_eq!(files.len(), 5);
+    }
+}

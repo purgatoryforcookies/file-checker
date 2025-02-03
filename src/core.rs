@@ -127,3 +127,84 @@ impl fmt::Debug for ComparatorOp {
         )
     }
 }
+
+#[cfg(test)]
+mod tests {
+    use std::{
+        fs::{self, File},
+        io::{BufRead, BufReader},
+        path::Path,
+    };
+
+    use super::*;
+
+    #[test]
+    fn it_initializes_the_core() {
+        let dir1 = "src/__fixtures__/folder1";
+        let dir2 = "src/__fixtures__/folder2";
+
+        let operation = ComparatorOp::new(dir1, dir2);
+        assert_eq!(operation.source_len(), 3);
+        assert_eq!(operation.destination_len(), 2);
+
+        // Check that theres a files in source and destination
+        assert_eq!(operation.source_ops.get(1).unwrap().hash, 18);
+        assert_eq!(operation.destination_ops.get(1).unwrap().hash, 18);
+    }
+
+    #[test]
+    fn it_finds_errors() {
+        let dir1 = "src/__fixtures__/folder1";
+        let dir2 = "src/__fixtures__/folder2";
+
+        let mut operation = ComparatorOp::new(dir1, dir2);
+        operation.check();
+
+        // There should be 1 missing file and 1 file with mismatching contents
+        assert_eq!(operation.errors.clone().unwrap().len(), 2);
+
+        // 1st error file
+        assert_eq!(
+            operation.errors.clone().unwrap().get(0).unwrap().path,
+            "src/__fixtures__/folder1/file1"
+        );
+        // 2nd error file
+        assert_eq!(
+            operation.errors.clone().unwrap().get(1).unwrap().path,
+            "src/__fixtures__/folder1/folder3/file2"
+        )
+    }
+
+    #[test]
+    fn it_wrote_results() {
+        let dir1 = "src/__fixtures__/folder1";
+        let dir2 = "src/__fixtures__/folder2";
+
+        let _ = fs::remove_file("result.txt");
+
+        let mut operation = ComparatorOp::new(dir1, dir2);
+        operation.check();
+
+        let p = Path::new("result.txt").exists();
+
+        assert_eq!(p, true);
+    }
+
+    #[test]
+    fn results_have_enough_lines() {
+        let dir1 = "src/__fixtures__/folder1";
+        let dir2 = "src/__fixtures__/folder2";
+
+        let _ = fs::remove_file("result.txt");
+
+        let mut operation = ComparatorOp::new(dir1, dir2);
+        operation.check();
+
+        let p = File::open("result.txt").unwrap();
+
+        let buffer = BufReader::new(p);
+        let line_count = buffer.lines().count();
+
+        assert_eq!(line_count, 12);
+    }
+}

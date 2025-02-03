@@ -18,7 +18,7 @@ impl FileOp {
 
         Self {
             hash: n,
-            path: path.to_string(),
+            path: path.to_string().replace("\\", "/"),
         }
     }
 }
@@ -26,5 +26,25 @@ impl FileOp {
 impl fmt::Debug for FileOp {
     fn fmt(&self, f: &mut fmt::Formatter<'_>) -> fmt::Result {
         write!(f, "FileOp [{} {}]", self.hash, self.path)
+    }
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn it_processes_file() {
+        let file = FileOp::new("src/__fixtures__/folder1/file1");
+        assert_eq!(file.hash, 12);
+        assert_eq!(file.path, "src/__fixtures__/folder1/file1");
+    }
+
+    #[test]
+    #[should_panic]
+    fn it_panics_if_path_not_found() {
+        // Theres no error handling in the code.
+        // TODO: Handle errors
+        FileOp::new("src/__fixtures__/folder1/file4");
     }
 }
