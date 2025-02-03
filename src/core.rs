@@ -148,8 +148,8 @@ mod tests {
         assert_eq!(operation.destination_len(), 2);
 
         // Check that theres a files in source and destination
-        assert_eq!(operation.source_ops.get(1).unwrap().hash, 18);
-        assert_eq!(operation.destination_ops.get(1).unwrap().hash, 12);
+        assert_eq!(operation.source_ops.get(1).unwrap().hash, 12);
+        assert_eq!(operation.destination_ops.get(1).unwrap().hash, 18);
     }
 
     #[test]
