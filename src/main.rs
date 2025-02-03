@@ -15,8 +15,6 @@ struct Args {
 fn main() {
     let cli = Args::parse();
 
-    println!("{:?}", cli);
-
     let mut operation = core::ComparatorOp::new(&cli.source, &cli.destination);
     operation.check();
 }

@@ -1,9 +1,8 @@
+use crate::{file::FileOp, scan};
 use core::fmt;
 use std::io::Write;
 use std::time::Instant;
 use std::{fs::OpenOptions, thread};
-
-use crate::{file::FileOp, scan};
 
 pub struct ComparatorOp {
     dir1: String,
@@ -16,7 +15,7 @@ pub struct ComparatorOp {
 }
 
 impl ComparatorOp {
-    pub fn new(source: &str, destination: &str) -> Self {
+    pub fn new(source: &str, destination: &str) -> ComparatorOp {
         let source_s = source.to_string();
         let destination_s = destination.to_string();
         let now = Instant::now();
