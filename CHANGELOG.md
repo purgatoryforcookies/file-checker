@@ -1,3 +1,10 @@
+## [1.1.2](https://github.com/purgatoryforcookies/file-checker/compare/v1.1.1...v1.1.2) (2025-02-04)
+
+
+### Bug Fixes
+
+* rename assets ([6482cac](https://github.com/purgatoryforcookies/file-checker/commit/6482cacd17d5088388c55ca03edddbb2b6d9161d))
+
 ## [1.1.1](https://github.com/purgatoryforcookies/file-checker/compare/v1.1.0...v1.1.1) (2025-02-04)
 
 
