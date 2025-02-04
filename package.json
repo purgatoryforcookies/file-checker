@@ -1,0 +1,8 @@
+{
+    "name": "file-checker",
+    "version": "0.0.0",
+    "private": true,
+    "description": "Easily check file that your file copy was succesful.",
+    "license": "MIT",
+    "author": "purgatoryforcookies"
+}
