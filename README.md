@@ -16,3 +16,11 @@ If a file cannot be found from the target, the file path is written into results
 
 After the operation completes, a `result.txt` is written into the current workind directory. 
 
+## How to run
+
+Easiest way to use the tool is to `git clone` and use `cargo run`
+
+CLI arguments are
+
+`-source *folder*`
+`-destination *folder*`
