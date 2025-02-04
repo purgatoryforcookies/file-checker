@@ -22,9 +22,7 @@ jobs:
     strategy:
       matrix:
         include:
-          - os: macos-12
-            filename: "file-checker"
-          - os: macos-14
+          - os: macos-15
             filename: "file-checker"
           - os: windows-2022
             filename: "file-checker.exe"
