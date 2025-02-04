@@ -38,7 +38,7 @@ jobs:
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ matrix.os }}
-        path: ./build/release/${{ matrix.filename }}
+        path: ./build/release/*${{ matrix.filename }}
   
   release:
     needs: [test, build]
