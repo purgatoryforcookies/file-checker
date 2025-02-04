@@ -1,3 +1,10 @@
+## [1.1.1](https://github.com/purgatoryforcookies/file-checker/compare/v1.1.0...v1.1.1) (2025-02-04)
+
+
+### Bug Fixes
+
+* pipeline ([5fac511](https://github.com/purgatoryforcookies/file-checker/commit/5fac511d395aee35132a8ab9eb63e7fdf44e3c7e))
+
 # [1.1.0](https://github.com/purgatoryforcookies/file-checker/compare/v1.0.0...v1.1.0) (2025-02-04)
 
 
