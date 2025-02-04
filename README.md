@@ -4,6 +4,8 @@ Small tool written in rust to check how many files in the source directory can a
 
 Uses blake3 to hash files. 
 
+Use case is for e.g. if you make a large file copy from one folder to another and change the directory structure.
+
 
 ## How it works
 
@@ -14,14 +16,3 @@ If a file cannot be found from the target, the file path is written into results
 
 After the operation completes, a `result.txt` is written into the current workind directory. 
 
-
-## How to run 
-
-### win
-
-
-
-### linux
-
-
-### mac
