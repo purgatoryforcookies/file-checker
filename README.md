@@ -8,8 +8,8 @@ Use this tool to verify your file copy made it through intact. Does not care abo
 ## How it works
 
 1. Scans source and calculates hash for each file
-2. Scans destionation and calculates hash for each file
-3. compares destination to source
+2. Scans destination and calculates hash for each file
+3. Compares destination to source
 
 After the operation completes, a `result.txt` is written into the current working directory containing files that were not found in destination.
 
