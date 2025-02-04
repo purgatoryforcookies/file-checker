@@ -1,26 +1,18 @@
 # File checker
 
 Small tool written in rust to check how many files in the source directory can also be found in the target directory. 
-
 Uses blake3 to hash files. 
 
-Use case is for e.g. if you make a large file copy from one folder to another and change the directory structure.
-
+Use this tool to verify your file copy made it through intact. Does not care about file structure, only checks files regardless where they are.
 
 ## How it works
 
-Each file in the source and the target searched recursively and hashed.
-After both directories have been discovered it is checked that each hash from source is found from the target. 
+1. Scans source and calculates hash for each file
+2. Scans destionation and calculates hash for each file
+3. compares destination to source
 
-If a file cannot be found from the target, the file path is written into results. 
-
-After the operation completes, a `result.txt` is written into the current workind directory. 
+After the operation completes, a `result.txt` is written into the current working directory containing files that were not found in destination.
 
 ## How to run
 
-Easiest way to use the tool is to `git clone` and use `cargo run`
-
-CLI arguments are
-
-`-source *folder*`
-`-destination *folder*`
+Easiest way to use the tool is to `git clone` and use `cargo run -source *path* -destination *path*`
