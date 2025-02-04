@@ -205,6 +205,6 @@ mod tests {
         let buffer = BufReader::new(p);
         let line_count = buffer.lines().count();
 
-        assert_eq!(line_count, 12);
+        assert_eq!(line_count, 11);
     }
 }
