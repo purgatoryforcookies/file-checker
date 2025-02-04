@@ -20,6 +20,7 @@ jobs:
     - name: Run tests
       run: cargo test --verbose
 
+      
   build:
     runs-on: ubuntu-latest
     steps:
