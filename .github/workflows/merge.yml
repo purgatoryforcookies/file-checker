@@ -40,7 +40,7 @@ jobs:
         path: ./build/release/*${{ matrix.extension }}
   
   release:
-    needs: test
+    needs: [test, build]
     runs-on: ubuntu-latest
     environment:
       name: ReleaseBot
