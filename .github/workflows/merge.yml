@@ -24,21 +24,28 @@ jobs:
         include:
           - os: macos-15
             filename: "file-checker"
+            outfilename: "file-checker-mac"
           - os: windows-2022
             filename: "file-checker.exe"
+            outfilename: "file-checker-win.exe"
           - os: ubuntu-latest
             filename: "file-checker"
+            outfilename: "file-checker-linux"
 
     runs-on: ${{ matrix.os }}
     steps:
     - uses: actions/checkout@v4
     - name: Build
       run: cargo build --release
+    - name: Rename artifact
+      run: |
+        mv ./build/release/${{ matrix.filename }} ./build/release/${{ matrix.outfilename }} 
+
     - name: Store build artifacts
       uses: actions/upload-artifact@v4
       with:
         name: build-${{ matrix.os }}
-        path: ./build/release/*${{ matrix.filename }}
+        path: ./build/release/${{ matrix.outfilename }}
   
   release:
     needs: [test, build]
