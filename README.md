@@ -15,4 +15,4 @@ After the operation completes, a `result.txt` is written into the current workin
 
 ## How to run
 
-Easiest way to use the tool is to `git clone` and use `cargo run -source *path* -destination *path*`
+Easiest way to use the tool is to `git clone` and use `cargo run -- -source *path* -destination *path*`
